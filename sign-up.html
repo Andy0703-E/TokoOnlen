@@ -94,9 +94,9 @@
                 return false;
             }
 
-            // Jika semua validasi lolos, kirim formulir
+            // Jika semua validasi lolos, redirect ke halaman Sign In
             alert("Account created successfully!");
-            // Remove the alert and handle the actual form submission here
+            window.location.href = "sign-in.html"; // Redirect ke halaman sign-in
             return true;
         }
     </script>
