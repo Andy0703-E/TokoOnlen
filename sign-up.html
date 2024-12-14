@@ -17,7 +17,7 @@
     <section class="flex justify-center items-center h-screen bg-gray-100">
         <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
             <h2 class="text-3xl font-bold text-center text-red-800 mb-6">Create Your Account</h2>
-            <form id="signupForm" action="#" method="POST" onsubmit="return validateForm()">
+            <form id="signupForm" action="#" method="POST" onsubmit="return redirectToSignIn()">
                 <div class="mb-4">
                     <label for="username" class="block text-gray-700 font-semibold mb-2">Username</label>
                     <input type="text" id="username" name="username"
@@ -55,49 +55,12 @@
         </div>
     </section>
 
-    <!-- JavaScript for Form Validation -->
+    <!-- JavaScript for Redirection -->
     <script>
-        function validateForm() {
-            // Mendapatkan nilai dari form input
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm_password').value;
-
-            // Validasi Username
-            if (username === "") {
-                alert("Username is required!");
-                return false;
-            }
-
-            // Validasi Email
-            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if (!emailRegex.test(email)) {
-                alert("Please enter a valid email address!");
-                return false;
-            }
-
-            // Validasi Password
-            if (password === "") {
-                alert("Password is required!");
-                return false;
-            }
-
-            // Validasi Confirm Password
-            if (confirmPassword === "") {
-                alert("Please confirm your password!");
-                return false;
-            }
-
-            if (password !== confirmPassword) {
-                alert("Passwords do not match!");
-                return false;
-            }
-
-            // Jika semua validasi lolos, redirect ke halaman Sign In
-            alert("Account created successfully!");
-            window.location.href = "sign-in.html"; // Redirect ke halaman sign-in
-            return true;
+        function redirectToSignIn() {
+            // Redirect langsung ke halaman sign-in
+            window.location.href = "sign-in.html";
+            return false; // Prevent form submission
         }
     </script>
 </body>
